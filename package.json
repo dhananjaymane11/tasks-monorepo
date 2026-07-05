@@ -1,0 +1,21 @@
+{
+  "name": "native-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/react-native",
+      "**/react-native/**",
+      "**/@react-native-community/cli",
+      "**/@react-native-community/cli/**"
+    ]
+  },
+  "scripts": {
+    "dev:web": "yarn --cwd apps/web dev",
+    "dev:mobile": "yarn --cwd apps/mobile start"
+  }
+}
