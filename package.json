@@ -16,6 +16,6 @@
   },
   "scripts": {
     "dev:web": "yarn --cwd apps/web dev",
-    "dev:mobile": "yarn --cwd apps/mobile start"
+    "dev:mobile": "yarn --cwd apps/mobile android"
   }
 }

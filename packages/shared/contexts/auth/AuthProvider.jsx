@@ -4,9 +4,7 @@ import { setStoreToken, clearStoreToken } from "../../api/store";
 import { AuthContext } from "./AuthContext";
 
 export function AuthProvider({ children }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    !!localStorage.getItem("accessToken"),
-  );
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const storeTokenFromContext = (token) => {
     setStoreToken(token);
