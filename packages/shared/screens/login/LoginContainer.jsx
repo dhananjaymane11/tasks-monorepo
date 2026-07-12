@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
 
-import { useApiCall } from "../../hooks";
+import { useApiCall, useCustomNavigation } from "../../hooks";
 import { sendOtpApi, verifyOtpApi } from "../../api/login";
 import { useAuth } from "../../contexts/auth";
 import { useToast } from "../../contexts/toast";
@@ -12,7 +11,7 @@ const LoginContainer = () => {
   const { storeTokenFromContext } = useAuth();
   const { setToastMessage } = useToast();
   const apiCall = useApiCall(false);
-  const navigate = useNavigate();
+  const navigation = useCustomNavigation();
 
   const onSendOtp = async (data) => {
     const result = await apiCall(sendOtpApi(data));
@@ -27,7 +26,7 @@ const LoginContainer = () => {
     if (result?.success) {
       setToastMessage("You are successfully logged in");
       await storeTokenFromContext(result.token);
-      navigate("/");
+      navigation.navigate("/");
     }
   };
 

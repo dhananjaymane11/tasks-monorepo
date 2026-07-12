@@ -1,3 +1,4 @@
-import useApiCall from './useApiCall';
+import useApiCall from "./useApiCall";
+import useCustomNavigation from "./useCustomNavigation";
 
-export { useApiCall };
+export { useApiCall, useCustomNavigation };

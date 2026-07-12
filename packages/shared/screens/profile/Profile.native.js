@@ -1,16 +1,16 @@
-import { Text, Button, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { View } from "react-native";
+import { Text, Button } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-function HomeScreen() {
-  const navigation = useNavigation();
-
+function Profile({ onLogout }) {
   return (
     <SafeAreaView>
       <Text>Profile</Text>
-      <Button title="Go to login" onPress={() => navigation.navigate("Home")} />
+      <Button mode="contained" onPress={onLogout}>
+        Logout
+      </Button>
     </SafeAreaView>
   );
 }
 
-export default HomeScreen;
+export default Profile;
