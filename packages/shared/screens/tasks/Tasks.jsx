@@ -1,7 +1,4 @@
 import { useState } from "react";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import AddIcon from "@mui/icons-material/Add";
 
 import {
   TopBar,
@@ -35,12 +32,12 @@ const Tasks = ({ tasks, addEditTask, toggleTask, removeTask }) => {
     <Container>
       <TopBar />
       <Header>
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+        {/* <Typography variant="h5" sx={{ fontWeight: "bold" }}>
           Tasks
         </Typography>
         <Button variant="outlined" onClick={handleShowModal}>
           <AddIcon />
-        </Button>
+        </Button> */}
       </Header>
 
       <TasksContent

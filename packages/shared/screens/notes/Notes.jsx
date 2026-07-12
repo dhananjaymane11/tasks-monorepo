@@ -1,8 +1,4 @@
 import { useState } from "react";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import AddIcon from "@mui/icons-material/Add";
-import Masonry from "@mui/lab/Masonry";
 
 import { TopBar, NotesItem, NotesAddEditItem, Modal } from "../../components";
 import { Header, Container, NotesContent } from "./Notes.style";
@@ -31,25 +27,25 @@ export default function Notes({ notes, addEditNote, removeNote }) {
     <Container>
       <TopBar />
       <Header>
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+        {/* <Typography variant="h5" sx={{ fontWeight: "bold" }}>
           Notes
         </Typography>
         <Button variant="outlined" onClick={handleShowModal}>
           <AddIcon />
-        </Button>
+        </Button> */}
       </Header>
 
       <NotesContent>
-        <Masonry columns={2} spacing={1}>
-          {notes.map((item) => (
-            <NotesItem
-              key={item._id}
-              item={item}
-              addEditNote={addEditNote}
-              handleShowModal={handleShowModal}
-            />
-          ))}
-        </Masonry>
+        {/* <Masonry columns={2} spacing={1}> */}
+        {notes.map((item) => (
+          <NotesItem
+            key={item._id}
+            item={item}
+            addEditNote={addEditNote}
+            handleShowModal={handleShowModal}
+          />
+        ))}
+        {/* </Masonry> */}
       </NotesContent>
 
       <Modal

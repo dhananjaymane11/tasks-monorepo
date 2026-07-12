@@ -26,7 +26,7 @@ const LoginContainer = () => {
     if (result?.success) {
       setToastMessage("You are successfully logged in");
       await storeTokenFromContext(result.token);
-      navigation.navigate("/");
+      navigation.navigate("home");
     }
   };
 

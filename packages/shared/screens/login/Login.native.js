@@ -54,13 +54,10 @@ function Login({ screen, onSendOtp, onVerifyOtp }) {
       <InputWrapper>
         <InputRow>
           <TextInput
-            fullWidth
-            variant="standard"
             label="Enter Email"
             value={email}
             onChangeText={(text) => handleEmailInputChange(text)}
             error={Boolean(errorText)}
-            helperText={errorText}
           />
         </InputRow>
         <Button mode="contained" onPress={handleSendOTP}>
@@ -70,11 +67,28 @@ function Login({ screen, onSendOtp, onVerifyOtp }) {
     );
   };
 
+  const renderOtpView = () => {
+    return (
+      <InputWrapper>
+        <InputRow>
+          <TextInput
+            label="Enter OTP"
+            value={otp}
+            onChangeText={(text) => handleOtpInputChange(text)}
+            error={Boolean(errorText)}
+          />
+        </InputRow>
+        <Button mode="contained" onPress={handleVerifyOTP}>
+          Verify OTP
+        </Button>
+      </InputWrapper>
+    );
+  };
+
   return (
     <SafeAreaView>
       <Text>Login</Text>
-
-      {renderLoginView()}
+      {screen === "email" ? renderLoginView() : renderOtpView()}
     </SafeAreaView>
   );
 }

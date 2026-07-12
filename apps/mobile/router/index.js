@@ -1,25 +1,27 @@
 import { createStaticNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Login, Profile } from '@packages/shared/screens';
+import { Login, Tasks, Notes, Profile } from '@packages/shared/screens';
 import { useIsSignedIn, useIsSignedOut } from './AuthHooks';
 
 const RootStack = createNativeStackNavigator({
-  initialRouteName: 'Home',
+  initialRouteName: 'home',
   screenOptions: {
     headerShown: false,
   },
   groups: {
     unauthenticated: {
-      if: useIsSignedIn,
+      if: useIsSignedOut,
       screens: {
-        Home: Login,
+        home: Login,
       },
     },
     authenticated: {
-      if: useIsSignedOut,
+      if: useIsSignedIn,
       screens: {
-        Profile: Profile,
+        home: Tasks,
+        notes: Notes,
+        profile: Profile,
       },
     },
   },
